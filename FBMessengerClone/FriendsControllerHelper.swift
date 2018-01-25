@@ -25,14 +25,8 @@ extension FriendsController {
         
         createMessageWithText(text: "Hello, my name is Mark and nice to meet you", friend: mark, context: context, minutesAgo: 60 * 24)
         
+        createSteveMessagesWithContext(context: context)
         
-        let steve = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
-        steve.name = "Steve Jobs"
-        steve.profileImageName = "steve_profile"
-        
-        createMessageWithText(text: "Hi, Good Morning...", friend: steve, context: context, minutesAgo: 4)
-        createMessageWithText(text: "Apple creates great iOS devices for the world. Please try us and see by yourselves.", friend: steve, context: context, minutesAgo: 3)
-        createMessageWithText(text: "Are you interested in buying Apple devices? I don't know what I am talking about. I just typing to make sentence a little longer to make it three lines of text.", friend: steve, context: context, minutesAgo: 2)
         
         
         let donald = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
@@ -49,11 +43,25 @@ extension FriendsController {
         loadData()
     }
     
-    private func createMessageWithText(text: String, friend: Friend, context: NSManagedObjectContext, minutesAgo: Double) {
+    private func createSteveMessagesWithContext(context: NSManagedObjectContext) {
+        let steve = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! Friend
+        steve.name = "Steve Jobs"
+        steve.profileImageName = "steve_profile"
+        
+        createMessageWithText(text: "Hi, Good Morning...", friend: steve, context: context, minutesAgo: 4)
+        createMessageWithText(text: "Apple creates great iOS devices for the world. Please try us and see by yourselves.", friend: steve, context: context, minutesAgo: 3)
+        createMessageWithText(text: "Are you interested in buying Apple devices? I don't know what I am talking about. I just typing to make sentence a little longer to make it three lines of text.", friend: steve, context: context, minutesAgo: 2)
+        
+        // response message
+        createMessageWithText(text: "Yes, totally looking forward to buy iPhoneX", friend: steve, context: context, minutesAgo: 1, isSender: true)
+    }
+    
+    private func createMessageWithText(text: String, friend: Friend, context: NSManagedObjectContext, minutesAgo: Double, isSender: Bool = false) {
         let message = NSEntityDescription.insertNewObject(forEntityName: "Message", into: context) as! Message
         message.friend = friend
         message.text = text
         message.date = NSDate().addingTimeInterval(-minutesAgo * 60)
+        message.isSender = isSender
     }
     
     func loadData() {

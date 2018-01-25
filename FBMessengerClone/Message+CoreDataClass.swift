@@ -2,7 +2,7 @@
 //  Message+CoreDataClass.swift
 //  FBMessengerClone
 //
-//  Created by MacBookPro on 1/23/18.
+//  Created by MacBookPro on 1/25/18.
 //  Copyright © 2018 basicdas. All rights reserved.
 //
 //

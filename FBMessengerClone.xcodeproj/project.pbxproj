@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		52B47EA72019D1F5008674CE /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B47EA62019D1F5008674CE /* ChatLogController.swift */; };
 		52B47EA92019E9C3008674CE /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B47EA82019E9C3008674CE /* CustomTabBarController.swift */; };
+		52B47EAC201A1464008674CE /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B47EAA201A1464008674CE /* Message+CoreDataClass.swift */; };
+		52B47EAD201A1464008674CE /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B47EAB201A1464008674CE /* Message+CoreDataProperties.swift */; };
 		52F82E8120173825002DC31A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F82E8020173825002DC31A /* AppDelegate.swift */; };
 		52F82E8320173825002DC31A /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F82E8220173825002DC31A /* FriendsController.swift */; };
 		52F82E8920173825002DC31A /* FBMessengerClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52F82E8720173825002DC31A /* FBMessengerClone.xcdatamodeld */; };
@@ -17,14 +19,14 @@
 		52F82E96201758AC002DC31A /* FriendsControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F82E95201758AC002DC31A /* FriendsControllerHelper.swift */; };
 		52F82EAB20175D35002DC31A /* Friend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F82EA720175D35002DC31A /* Friend+CoreDataClass.swift */; };
 		52F82EAC20175D35002DC31A /* Friend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F82EA820175D35002DC31A /* Friend+CoreDataProperties.swift */; };
-		52F82EAD20175D35002DC31A /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F82EA920175D35002DC31A /* Message+CoreDataClass.swift */; };
-		52F82EAE20175D35002DC31A /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F82EAA20175D35002DC31A /* Message+CoreDataProperties.swift */; };
 		52F82EB020177900002DC31A /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F82EAF20177900002DC31A /* DatabaseController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		52B47EA62019D1F5008674CE /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		52B47EA82019E9C3008674CE /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		52B47EAA201A1464008674CE /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
+		52B47EAB201A1464008674CE /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		52F82E7D20173825002DC31A /* FBMessengerClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBMessengerClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F82E8020173825002DC31A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52F82E8220173825002DC31A /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
@@ -35,8 +37,6 @@
 		52F82E95201758AC002DC31A /* FriendsControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsControllerHelper.swift; sourceTree = "<group>"; };
 		52F82EA720175D35002DC31A /* Friend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataClass.swift"; sourceTree = "<group>"; };
 		52F82EA820175D35002DC31A /* Friend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		52F82EA920175D35002DC31A /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
-		52F82EAA20175D35002DC31A /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		52F82EAF20177900002DC31A /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,10 +70,10 @@
 		52F82E7F20173825002DC31A /* FBMessengerClone */ = {
 			isa = PBXGroup;
 			children = (
+				52B47EAA201A1464008674CE /* Message+CoreDataClass.swift */,
+				52B47EAB201A1464008674CE /* Message+CoreDataProperties.swift */,
 				52F82EA720175D35002DC31A /* Friend+CoreDataClass.swift */,
 				52F82EA820175D35002DC31A /* Friend+CoreDataProperties.swift */,
-				52F82EA920175D35002DC31A /* Message+CoreDataClass.swift */,
-				52F82EAA20175D35002DC31A /* Message+CoreDataProperties.swift */,
 				52F82E8020173825002DC31A /* AppDelegate.swift */,
 				52F82E8220173825002DC31A /* FriendsController.swift */,
 				52F82E8A20173825002DC31A /* Assets.xcassets */,
@@ -162,14 +162,14 @@
 				52B47EA72019D1F5008674CE /* ChatLogController.swift in Sources */,
 				52F82E8320173825002DC31A /* FriendsController.swift in Sources */,
 				52F82EAB20175D35002DC31A /* Friend+CoreDataClass.swift in Sources */,
+				52B47EAC201A1464008674CE /* Message+CoreDataClass.swift in Sources */,
 				52F82E8120173825002DC31A /* AppDelegate.swift in Sources */,
 				52F82E8920173825002DC31A /* FBMessengerClone.xcdatamodeld in Sources */,
+				52B47EAD201A1464008674CE /* Message+CoreDataProperties.swift in Sources */,
 				52B47EA92019E9C3008674CE /* CustomTabBarController.swift in Sources */,
 				52F82E96201758AC002DC31A /* FriendsControllerHelper.swift in Sources */,
 				52F82EB020177900002DC31A /* DatabaseController.swift in Sources */,
 				52F82EAC20175D35002DC31A /* Friend+CoreDataProperties.swift in Sources */,
-				52F82EAE20175D35002DC31A /* Message+CoreDataProperties.swift in Sources */,
-				52F82EAD20175D35002DC31A /* Message+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
