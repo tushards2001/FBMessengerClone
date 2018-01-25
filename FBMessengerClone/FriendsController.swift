@@ -8,36 +8,101 @@
 
 import UIKit
 
+
+
 class FriendsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     private let cellId = "cellId"
+    
+    var messages: [Message]?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         collectionView?.backgroundColor = UIColor.white
-        collectionView?.register(FriendCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.register(MessageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.alwaysBounceVertical = true
         
         navigationItem.title = "Recent"
+        
+        setupData()
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        if let count = messages?.count {
+            return count
+        }
+        
+        return 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MessageCell
+        
+        if let message = messages?[indexPath.item] {
+            cell.message = message
+        }
+        
+        return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 100)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let layout = UICollectionViewFlowLayout()
+        let controller = ChatLogController(collectionViewLayout: layout)
+        controller.friend = messages?[indexPath.item].friend
+        navigationController?.pushViewController(controller, animated: true)
+    }
 
 }
 
-class FriendCell: BaseCell {
+class MessageCell: BaseCell {
+    
+    override var isHighlighted: Bool {
+        didSet {
+            let customBlueColor = UIColor(red: 0, green: 134/255, blue: 249/255, alpha: 1)
+            backgroundColor = isHighlighted ? customBlueColor : UIColor.white
+            
+            nameLabel.textColor = isHighlighted ? UIColor.white : UIColor.black
+            timeLabel.textColor = isHighlighted ? UIColor.white : UIColor.black
+            messageLabel.textColor = isHighlighted ? UIColor.white : UIColor.black
+        }
+    }
+    
+    var message: Message? {
+        didSet {
+            nameLabel.text = message?.friend?.name
+            
+            if let profileImageName = message?.friend?.profileImageName {
+                profileImageView.image = UIImage(named: profileImageName)
+                hasReadImageView.image = UIImage(named: profileImageName)
+            }
+            
+            messageLabel.text = message?.text
+            
+            if let date = message?.date {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "h:mm a"
+                
+                let elapsedTimeInSeconds = NSDate().timeIntervalSince(date as Date)
+                let secondInDays:TimeInterval = 60 * 60 * 24
+                
+                if elapsedTimeInSeconds > 7 * secondInDays {
+                    dateFormatter.dateFormat = "dd/MM/yy"
+                } else if elapsedTimeInSeconds > secondInDays {
+                    dateFormatter.dateFormat = "EEE"
+                }
+                
+                timeLabel.text = dateFormatter.string(from: date as Date)
+            }
+        }
+    }
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
